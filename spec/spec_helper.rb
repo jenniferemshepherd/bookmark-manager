@@ -3,7 +3,7 @@ require 'capybara/rspec'
 require './app/models/favourite'
 require './app/app'
 
-Capybara.app = Bookmark
+Capybara.app = BookmarkManager
 
 RSpec.configure do |config|
   config.expect_with :rspec do |expectations|
