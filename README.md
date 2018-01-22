@@ -7,7 +7,7 @@ I want to see a favourites list of websites
 ```
 ```
 As a user
-So that I can save my favourite websites
+So that I can save my favourite websites1
 I want to be able to add new links to the favourites list
 ```
 ```
