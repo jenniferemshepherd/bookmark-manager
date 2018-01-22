@@ -1,0 +1,8 @@
+<ul id='favourites'>
+  <% @favourites.each do |link| %>
+    <li>
+      Title: <%= link.title %>
+      URL:   <%= link.url   %>
+    </li>
+  <% end %>
+</ul>

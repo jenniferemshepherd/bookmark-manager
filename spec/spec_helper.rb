@@ -1,5 +1,10 @@
 require 'capybara/rspec'
 
+require './app/models/favourite'
+require './app/app'
+
+Capybara.app = Bookmark
+
 RSpec.configure do |config|
   config.expect_with :rspec do |expectations|
     expectations.include_chain_clauses_in_custom_matcher_descriptions = true
