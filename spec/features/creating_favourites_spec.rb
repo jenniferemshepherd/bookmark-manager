@@ -1,5 +1,4 @@
 feature 'Creating favourites' do
-
   scenario 'I can create a new favourite' do
     visit '/favourites/new'
     fill_in 'url',   with: 'www.google.co.uk'
