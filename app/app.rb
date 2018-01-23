@@ -6,4 +6,13 @@ class BookmarkManager < Sinatra::Base
     @favourites = Favourite.all
     erb :'favourites/index'
   end
+
+  post '/favourites' do
+    Favourite.create(url: params[:url], title: params[:title])
+    redirect '/favourites'
+  end
+
+  get '/favourites/new' do
+    erb :'favourites/new'
+  end
 end
