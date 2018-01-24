@@ -21,4 +21,10 @@ class BookmarkManager < Sinatra::Base
   get '/favourites/new' do
     erb :'favourites/new'
   end
+
+  get '/tags/:name' do
+    tag = Tag.first(name: params[:name])
+    @favourites = tag ? tag.links : []
+    erb :'favourites/index'
+  end
 end
