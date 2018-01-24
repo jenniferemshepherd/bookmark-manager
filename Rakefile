@@ -1,5 +1,5 @@
 require 'data_mapper'
-require 'dm-postgres-adapter'
+require './app/app.rb'
 
 desc "Updates a database"
 task :update do
