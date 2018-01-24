@@ -1,16 +1,17 @@
 ENV['RACK_ENV'] ||= 'development'
 
 require 'sinatra/base'
-require_relative 'models/favourite'
+require_relative 'models/link'
 
+# A route controller built as a modular sinatra app
 class BookmarkManager < Sinatra::Base
   get '/favourites' do
-    @favourites = Favourite.all
+    @favourites = Link.all
     erb :'favourites/index'
   end
 
   post '/favourites' do
-    Favourite.create(url: params[:url], title: params[:title])
+    Link.create(url: params[:url], title: params[:title])
     redirect '/favourites'
   end
 

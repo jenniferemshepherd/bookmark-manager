@@ -1,7 +1,8 @@
 require 'data_mapper'
 require 'dm-postgres-adapter'
 
-class Favourite
+# Used in the creation of a resource that has the given attributes
+class Link
   include DataMapper::Resource
 
   property :id, Serial
@@ -9,7 +10,8 @@ class Favourite
   property :url, String
 end
 
-DataMapper.setup(:default, ENV['DATABASE_URL'] || "postgres://localhost/bookmark_manager_#{ENV['RACK_ENV']}")
+local_db = "postgres://localhost/bookmark_manager_#{ENV['RACK_ENV']}"
+DataMapper.setup(:default, ENV['DATABASE_URL'] || local_db)
 
 DataMapper.finalize
 

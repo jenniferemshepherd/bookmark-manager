@@ -1,6 +1,6 @@
 feature 'Home Page' do
   scenario 'Should visit favourites page and see links ' do
-    Favourite.create(url: 'http://www.makersacademy.com', title: 'Makers Academy')
+    Link.create(url: 'http://www.makersacademy.com', title: 'Makers Academy')
 
     visit '/favourites'
     expect(page.status_code).to eq 200
