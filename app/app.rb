@@ -6,7 +6,7 @@ require_relative 'data_mapper_setup'
 # A route controller built as a modular sinatra app
 class BookmarkManager < Sinatra::Base
   enable :sessions
-  set :session_secret, 'topsecretsecret'
+  # set :session_secret, 'topsecretsecret'
 
   helpers do
     def current_user
@@ -43,8 +43,9 @@ class BookmarkManager < Sinatra::Base
   end
 
   post '/user' do
-    user = User.create(email: params[:email], password: params[:password])
-    session['email'] = params[:email]
+    user = User.create(email: params[:email],
+                    password: params[:password],
+                    password_confirmation: params[:password_confirmation])
     session['user_id'] = user.id
     redirect '/favourites'
   end

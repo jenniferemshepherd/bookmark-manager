@@ -1,17 +1,16 @@
 feature 'user signup' do
-  before do
-    visit '/user/new'
-    fill_in 'email', with: 'someone@google.com'
-    fill_in 'password', with: 'secret'
-    click_button 'Register'
-  end
 
   scenario 'a user can signup to the bookmark manager' do
+    sign_in_correctly
     expect(page).to have_content 'Bookmark Manager'
     expect(page).to have_content 'Welcome someone@google.com'
   end
 
   scenario 'user count increases by 1' do
-    expect(User.all.size).to eq 1
+    expect{ sign_in_correctly }.to change{ User.all.size }.by(1)
+  end
+
+  scenario 'incorrect confirmation password' do
+    expect{ sign_in_incorrectly }.to change{ User.all.size }.by(0)
   end
 end

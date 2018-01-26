@@ -4,3 +4,19 @@ def create_link_with_tag(url, title, tag)
   link.tags << category
   link.save
 end
+
+def sign_in_correctly
+  visit '/user/new'
+  fill_in 'email', with: 'someone@google.com'
+  fill_in 'password', with: 'secret'
+  fill_in 'password_confirmation', with: 'secret'
+  click_button 'Register'
+end
+
+def sign_in_incorrectly
+  visit '/user/new'
+  fill_in 'email', with: 'someone@google.com'
+  fill_in 'password', with: 'secret'
+  fill_in 'password_confirmation', with: 'incorrect'
+  click_button 'Register'
+end
