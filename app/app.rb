@@ -18,6 +18,10 @@ class BookmarkManager < Sinatra::Base
     end
   end
 
+  get '/' do
+    redirect '/user/new'
+  end
+
   get '/favourites' do
     @favourites = Link.all
     erb :'favourites/index'
