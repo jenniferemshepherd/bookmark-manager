@@ -1,6 +1,6 @@
 feature 'user signup' do
   before do
-    visit '/signup'
+    visit '/user/new'
     fill_in 'email', with: 'someone@google.com'
     fill_in 'password', with: 'secret'
     click_button 'Register'
