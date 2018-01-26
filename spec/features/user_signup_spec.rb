@@ -16,4 +16,9 @@ feature 'user signup' do
     expect(current_path).to eq('/user')
     expect(page).to have_content('Password and confirmation password do not match')
   end
+
+  scenario 'email field is blank' do
+    sign_in_without_email
+    expect(page).to have_content('Email field must not be blank')
+  end
 end

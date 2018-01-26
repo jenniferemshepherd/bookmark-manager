@@ -20,3 +20,11 @@ def sign_in_incorrectly
   fill_in 'password_confirmation', with: 'incorrect'
   click_button 'Register'
 end
+
+def sign_in_without_email
+  visit '/user/new'
+  fill_in 'email', with: ''
+  fill_in 'password', with: 'secret'
+  fill_in 'password_confirmation', with: 'secret'
+  click_button 'Register'
+end
