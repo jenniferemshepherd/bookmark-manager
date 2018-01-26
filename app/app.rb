@@ -10,7 +10,7 @@ class BookmarkManager < Sinatra::Base
   enable :sessions
   register Sinatra::Flash
 
-  # set :session_secret, 'topsecretsecret'
+  set :session_secret, 'topsecretsecret'
 
   helpers do
     def current_user
@@ -46,12 +46,6 @@ class BookmarkManager < Sinatra::Base
     erb :'user/new'
   end
 
-  get '/user/passwordsdiffer' do
-    flash[:blah]
-      "Password and confirmation password do not match"
-
-  end
-
   post '/user' do
     user = User.create(email: params[:email],
                     password: params[:password],
@@ -61,8 +55,8 @@ class BookmarkManager < Sinatra::Base
       redirect '/favourites'
     else
       flash.now[:error] = "Password and confirmation password do not match"
+      @repeat_email = params[:email]
       erb :'user/new'
-
     end
   end
 end
