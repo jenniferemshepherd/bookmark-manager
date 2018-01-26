@@ -6,6 +6,7 @@ require_relative 'data_mapper_setup'
 # A route controller built as a modular sinatra app
 class BookmarkManager < Sinatra::Base
   enable :sessions
+  set :session_secret, 'topsecretsecret'
 
   helpers do
     def current_user
