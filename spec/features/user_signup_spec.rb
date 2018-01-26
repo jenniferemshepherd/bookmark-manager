@@ -18,7 +18,10 @@ feature 'user signup' do
   end
 
   scenario 'email field is blank' do
-    sign_in_without_email
-    expect(page).to have_content('Email field must not be blank')
+    expect{ sign_in_without_email }.to change{ User.all.size }.by(0)
+  end
+
+  scenario "I can't sign up with an invalid email address" do
+    expect { sign_up_with_invalid_email }.to change{ User.all.size }.by(0)
   end
 end

@@ -28,3 +28,11 @@ def sign_in_without_email
   fill_in 'password_confirmation', with: 'secret'
   click_button 'Register'
 end
+
+def sign_up_with_invalid_email
+  visit '/user/new'
+  fill_in 'email', with: 'dsfdsfdsf'
+  fill_in 'password', with: 'secret'
+  fill_in 'password_confirmation', with: 'secret'
+  click_button 'Register'
+end
