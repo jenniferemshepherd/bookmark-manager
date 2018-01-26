@@ -12,5 +12,8 @@ feature 'user signup' do
 
   scenario 'incorrect confirmation password' do
     expect{ sign_in_incorrectly }.to change{ User.all.size }.by(0)
+    expect(page).to have_content('Signup')
+    expect(current_path).to eq('/user')
+    expect(page).to have_content('Password and confirmation password do not match')
   end
 end
