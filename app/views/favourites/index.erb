@@ -6,7 +6,9 @@
 
 <h1>Bookmark Manager</h1>
 
-<h2>Welcome <%= @email %></h2>
+<% if current_user %>
+  <h2>Welcome <%= @current_user.email %></h2>
+<% end %>
 
 <ul id='favourites'>
   <% @favourites.each do |link| %>

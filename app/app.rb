@@ -9,12 +9,11 @@ class BookmarkManager < Sinatra::Base
 
   helpers do
     def current_user
-      User.first(id: session['user_id'])
+      @current_user ||= User.first(id: session['user_id'])
     end
   end
 
   get '/favourites' do
-    @email = session['email']
     @favourites = Link.all
     erb :'favourites/index'
   end
