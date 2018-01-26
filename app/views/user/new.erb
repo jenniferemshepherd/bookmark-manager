@@ -8,11 +8,7 @@
 <form action='/user' method='POST'>
   <label for='email'>
     Email:
-    <% if flash[:error] %>
-      <input type='text' name='email' value='<%= @repeat_email %>' />
-    <% else %>
-      <input type='text' name='email' />
-    <% end %>
+    <input type='text' name='email' value ='<% @user.email %>' />
   </label>
   <label for='password'>
     Password:
