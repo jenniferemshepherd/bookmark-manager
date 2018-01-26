@@ -5,7 +5,10 @@ require_relative 'data_mapper_setup'
 
 # A route controller built as a modular sinatra app
 class BookmarkManager < Sinatra::Base
+  enable :sessions
+
   get '/favourites' do
+    @email = session['email']
     @favourites = Link.all
     erb :'favourites/index'
   end
@@ -27,5 +30,15 @@ class BookmarkManager < Sinatra::Base
     tag = Tag.first(name: params[:name])
     @favourites = tag ? tag.links : []
     erb :'favourites/index'
+  end
+
+  get '/signup' do
+    erb :'signup/index'
+  end
+
+  post '/registered' do
+    # User.create(email: params[:email], password: params[:password])
+    session['email'] = params[:email]
+    redirect '/favourites'
   end
 end
