@@ -43,6 +43,7 @@ class BookmarkManager < Sinatra::Base
   end
 
   get '/user/new' do
+    @repeat_email = params[:email]
     erb :'user/new'
   end
 
@@ -55,7 +56,6 @@ class BookmarkManager < Sinatra::Base
       redirect '/favourites'
     else
       flash.now[:error] = "Password and confirmation password do not match"
-      @repeat_email = params[:email]
       erb :'user/new'
     end
   end

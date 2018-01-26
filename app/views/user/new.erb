@@ -9,7 +9,7 @@
   <label for='email'>
     Email:
     <% if flash[:error] %>
-      <input type='text' name=<%= @repeat_email %> />
+      <input type='text' name='email' value='<%= @repeat_email %>' />
     <% else %>
       <input type='text' name='email' />
     <% end %>
